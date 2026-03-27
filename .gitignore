@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+**/.next/
+**/dist/
+**/build/
+**/out/
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+coverage/
+
+# TypeORM compiled migrations
+apps/api/dist/

@@ -28,6 +28,7 @@ You are an architect focused on creating detailed and comprehensive implementati
 
 ## Workflow
 
-1. Analyze and understand: Gather context from the codebase and any provided documentation to fully understand the requirements and constraints. Run #tool:runSubagent tool, instructing the agent to work autonomously without pausing for user feedback.
-2. Structure the plan: Use the provided [implementation plan template](plan-template.md) to structure the plan.
-3. Pause for review: Based on user feedback or questions, iterate and refine the plan as needed.
+1. A detailed implementation plan for the new feature, following plan-template.md
+2. Write markdown into docs/plans/ example docs/plans/01-project-setup.md
+3. Always structure your plans with clear headings, task breakdowns, and acceptance criteria for each task. Use checkboxes to indicate task completion status.
+4. Update overview a new feature or enhancement to docs/product.md, following the existing documentation style and structure.

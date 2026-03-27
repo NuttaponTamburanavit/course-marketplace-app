@@ -19,6 +19,8 @@ Check with the user that these modules match their expectations. Check with the 
 
 5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. The PRD should be submitted as a GitHub issue.
 
+6. Create file to docs/prd/. with the name format YYYY-MM-DD-{feature-name}.md, and write the PRD in markdown format using the template below.
+
 <prd-template>
 
 ## Problem Statement

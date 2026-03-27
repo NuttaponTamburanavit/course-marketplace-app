@@ -11,8 +11,9 @@ Generate
 
 1. A detailed implementation plan for the new feature, following plan-template.md
 2. Write markdown into docs/plans/ example docs/plans/01-project-setup.md
-3. Always structure your plans with clear headings, task breakdowns, and acceptance criteria for each task. Use checkboxes to indicate task completion status.
-4. Update overview a new feature or enhancement to docs/product.md, following the existing documentation style and structure.
+3. Keep small, focused, vertical slices in each phase that deliver incremental value and can be independently developed and tested.
+4. Always structure your plans with clear headings, task breakdowns, and acceptance criteria for each task. Use checkboxes to indicate task completion status.
+5. Update overview a new feature or enhancement to docs/product.md, following the existing documentation style and structure.
 
 ## <plan-template>
 

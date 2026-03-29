@@ -29,17 +29,17 @@ A visitor lands on the homepage and immediately experiences a premium, dark-them
 
 ## Non-functional Requirements
 
-- [ ] **Performance**: Fonts (Space Grotesk, Inter) loaded via `next/font` to avoid layout shift; course data fetched server-side via Server Component
-- [ ] **Responsiveness**: Layout adapts from 1 → 2 → 3 columns across mobile / tablet / desktop breakpoints
-- [ ] **Accessibility**: All interactive elements have accessible labels; search input is keyboard-navigable
-- [ ] **TypeScript**: `strict: true` — no `any` types anywhere in new components
-- [ ] **Security**: No auth logic introduced; no secrets exposed to client
+- [x] **Performance**: Fonts (Space Grotesk, Inter) loaded via `next/font` to avoid layout shift; course data fetched server-side via Server Component
+- [x] **Responsiveness**: Layout adapts from 1 → 2 → 3 columns across mobile / tablet / desktop breakpoints
+- [x] **Accessibility**: All interactive elements have accessible labels; search input is keyboard-navigable
+- [x] **TypeScript**: `strict: true` — no `any` types anywhere in new components
+- [x] **Security**: No auth logic introduced; no secrets exposed to client
 
 ---
 
 ## Scope
 
-- [ ] `apps/web/` — Frontend only (Next.js 14 · App Router · Atomic Design)
+- [x] `apps/web/` — Frontend only (Next.js 14 · App Router · Atomic Design)
 
 > No backend changes. The homepage continues to consume the existing `/courses` endpoint.
 
@@ -105,57 +105,57 @@ None — no database migrations required.
 
 ### Phase 1 — Design Token & Font Setup
 
-- [ ] Update `tailwind.config.ts`: replace `brand` blue palette with Armored Obsidian tokens (`surface`, `surface-container-low`, `surface-bright`, `primary`, `primary-container`, `on-secondary`)
-- [ ] Add `display` (Space Grotesk) and `body` (Inter) font families via `next/font/google` in `app/layout.tsx`
-- [ ] Verify no existing components break visually after token rename (update any hardcoded `brand-*` class usages)
+- [x] Update `tailwind.config.ts`: replace `brand` blue palette with Armored Obsidian tokens (`surface`, `surface-container-low`, `surface-bright`, `primary`, `primary-container`, `on-secondary`)
+- [x] Add `display` (Space Grotesk) and `body` (Inter) font families via `next/font/google` in `app/layout.tsx`
+- [x] Verify no existing components break visually after token rename (update any hardcoded `brand-*` class usages)
 
 ### Phase 2 — Atoms
 
-- [ ] `components/atoms/StatBadge/StatBadge.tsx` — props: `value: string | number`, `label: string`; glassmorphism panel (`backdrop-blur`, `bg-white/8`, "Armored Edge" inset shadow)
-- [ ] `components/atoms/StatBadge/StatBadge.spec.tsx` — when value and label supplied, expect both rendered; when value is 0, expect "0" rendered
-- [ ] `components/atoms/StatBadge/index.ts` — barrel export
-- [ ] Update `components/atoms/index.ts` to include `StatBadge`
+- [x] `components/atoms/StatBadge/StatBadge.tsx` — props: `value: string | number`, `label: string`; glassmorphism panel (`backdrop-blur`, `bg-white/8`, "Armored Edge" inset shadow)
+- [x] `components/atoms/StatBadge/StatBadge.spec.tsx` — when value and label supplied, expect both rendered; when value is 0, expect "0" rendered
+- [x] `components/atoms/StatBadge/index.ts` — barrel export
+- [x] Update `components/atoms/index.ts` to include `StatBadge`
 
 ### Phase 3 — Molecules
 
-- [ ] `components/molecules/CourseCard/CourseCard.tsx` — props: `title`, `description`, `tags: string[]`, `href: string`, optional `level`, `duration`, `rating`, `thumbnailUrl`; `xl` border-radius; `surface-container-low` bg; tags as `Badge` atoms; gradient thumbnail fallback
-- [ ] `components/molecules/CourseCard/CourseCard.spec.tsx` — when all props provided, expect title/description/tags/rating rendered; when optional props omitted, expect no crash; when href set, expect link points to correct URL
-- [ ] `components/molecules/CourseCard/index.ts`
-- [ ] `components/molecules/SearchBar/SearchBar.tsx` — props: `value: string`, `onChange: (v: string) => void`, `onFilter?: () => void`; dark-styled input with search icon; red inner-glow on focus; filter icon button
-- [ ] `components/molecules/SearchBar/SearchBar.spec.tsx` — when user types, expect onChange called with value; when filter button clicked, expect onFilter called
-- [ ] `components/molecules/SearchBar/index.ts`
-- [ ] Update `components/molecules/index.ts`
+- [x] `components/molecules/CourseCard/CourseCard.tsx` — props: `title`, `description`, `tags: string[]`, `href: string`, optional `level`, `duration`, `rating`, `thumbnailUrl`; `xl` border-radius; `surface-container-low` bg; tags as `Badge` atoms; gradient thumbnail fallback
+- [x] `components/molecules/CourseCard/CourseCard.spec.tsx` — when all props provided, expect title/description/tags/rating rendered; when optional props omitted, expect no crash; when href set, expect link points to correct URL
+- [x] `components/molecules/CourseCard/index.ts`
+- [x] `components/molecules/SearchBar/SearchBar.tsx` — props: `value: string`, `onChange: (v: string) => void`, `onFilter?: () => void`; dark-styled input with search icon; red inner-glow on focus; filter icon button
+- [x] `components/molecules/SearchBar/SearchBar.spec.tsx` — when user types, expect onChange called with value; when filter button clicked, expect onFilter called
+- [x] `components/molecules/SearchBar/index.ts`
+- [x] Update `components/molecules/index.ts`
 
 ### Phase 4 — Organisms
 
-- [ ] `components/organisms/Header/Header.tsx` — logo text/SVG, nav links (Explore, My Learning, Mentors, Resources), right icon cluster (cart, notifications, avatar — static placeholders); sticky; dark `surface` bg; no border-bottom ("No-Line Rule")
-- [ ] `components/organisms/Header/Header.spec.tsx` — when rendered, expect all nav link labels present; when rendered, expect logo text visible
-- [ ] `components/organisms/Header/index.ts`
-- [ ] `components/organisms/HeroSection/HeroSection.tsx` — category chip, `display-lg` two-line headline (Space Grotesk), subtext, two `StatBadge` components; radial gradient ambient glow from `primary-container` to `surface`; props: `activeCourseCount: number`, `engineerCount: number`
-- [ ] `components/organisms/HeroSection/HeroSection.spec.tsx` — when counts provided, expect stat values rendered; when rendered, expect headline text present
-- [ ] `components/organisms/HeroSection/index.ts`
-- [ ] `components/organisms/AvailableLearningPaths/AvailableLearningPaths.tsx` — `'use client'`; props: `courses: CourseCardProps[]`; section title + `SearchBar` + responsive 1→2→3-col grid; client-side keyword filter by title/tag
-- [ ] `components/organisms/AvailableLearningPaths/AvailableLearningPaths.spec.tsx` — when courses prop provided, expect all cards rendered; when search query matches title, expect only matching cards shown; when search query matches nothing, expect empty state shown
-- [ ] `components/organisms/AvailableLearningPaths/index.ts`
-- [ ] `components/organisms/CTABanner/CTABanner.tsx` — full-width strip; headline, body text, gradient CTA button (45° `primary-container` → `on-secondary`); deep red tonal bg; purely presentational
-- [ ] `components/organisms/CTABanner/CTABanner.spec.tsx` — when rendered, expect headline, body text, and CTA button label present
-- [ ] `components/organisms/CTABanner/index.ts`
-- [ ] `components/organisms/Footer/Footer.tsx` — three link columns (Tracks, Academy, Social); left column with logo + tagline; bottom bar with copyright + Privacy Policy + Terms of Service links
-- [ ] `components/organisms/Footer/Footer.spec.tsx` — when rendered, expect all column link labels present; when rendered, expect copyright text present
-- [ ] `components/organisms/Footer/index.ts`
-- [ ] Update `components/organisms/index.ts`
+- [x] `components/organisms/Header/Header.tsx` — logo text/SVG, nav links (Explore, My Learning, Mentors, Resources), right icon cluster (cart, notifications, avatar — static placeholders); sticky; dark `surface` bg; no border-bottom ("No-Line Rule")
+- [x] `components/organisms/Header/Header.spec.tsx` — when rendered, expect all nav link labels present; when rendered, expect logo text visible
+- [x] `components/organisms/Header/index.ts`
+- [x] `components/organisms/HeroSection/HeroSection.tsx` — category chip, `display-lg` two-line headline (Space Grotesk), subtext, two `StatBadge` components; radial gradient ambient glow from `primary-container` to `surface`; props: `activeCourseCount: number`, `engineerCount: number`
+- [x] `components/organisms/HeroSection/HeroSection.spec.tsx` — when counts provided, expect stat values rendered; when rendered, expect headline text present
+- [x] `components/organisms/HeroSection/index.ts`
+- [x] `components/organisms/AvailableLearningPaths/AvailableLearningPaths.tsx` — `'use client'`; props: `courses: CourseCardProps[]`; section title + `SearchBar` + responsive 1→2→3-col grid; client-side keyword filter by title/tag
+- [x] `components/organisms/AvailableLearningPaths/AvailableLearningPaths.spec.tsx` — when courses prop provided, expect all cards rendered; when search query matches title, expect only matching cards shown; when search query matches nothing, expect empty state shown
+- [x] `components/organisms/AvailableLearningPaths/index.ts`
+- [x] `components/organisms/CTABanner/CTABanner.tsx` — full-width strip; headline, body text, gradient CTA button (45° `primary-container` → `on-secondary`); deep red tonal bg; purely presentational
+- [x] `components/organisms/CTABanner/CTABanner.spec.tsx` — when rendered, expect headline, body text, and CTA button label present
+- [x] `components/organisms/CTABanner/index.ts`
+- [x] `components/organisms/Footer/Footer.tsx` — three link columns (Tracks, Academy, Social); left column with logo + tagline; bottom bar with copyright + Privacy Policy + Terms of Service links
+- [x] `components/organisms/Footer/Footer.spec.tsx` — when rendered, expect all column link labels present; when rendered, expect copyright text present
+- [x] `components/organisms/Footer/index.ts`
+- [x] Update `components/organisms/index.ts`
 
 ### Phase 5 — Page Composition & Layout
 
-- [ ] Update `app/layout.tsx`: import and render `<Header />` above and `<Footer />` below `{children}`; add `next/font` font variables to `<html>` className
-- [ ] Refactor `app/page.tsx` (Server Component): fetch courses from `/courses` API server-side; pass data to `<AvailableLearningPaths>`; compose `<HeroSection>` → `<AvailableLearningPaths>` → `<CTABanner>`; remove old inline header and raw course loop
-- [ ] Update `app/loading.tsx` with a skeleton that matches the new layout (hero skeleton + grid skeletons)
-- [ ] Verify `app/error.tsx` still renders correctly within the new layout
+- [x] Update `app/layout.tsx`: import and render `<Header />` above and `<Footer />` below `{children}`; add `next/font` font variables to `<html>` className
+- [x] Refactor `app/page.tsx` (Server Component): fetch courses from `/courses` API server-side; pass data to `<AvailableLearningPaths>`; compose `<HeroSection>` → `<AvailableLearningPaths>` → `<CTABanner>`; remove old inline header and raw course loop
+- [x] Update `app/loading.tsx` with a skeleton that matches the new layout (hero skeleton + grid skeletons)
+- [x] Verify `app/error.tsx` still renders correctly within the new layout
 
 ### Phase 6 — Stats Data Wiring
 
-- [ ] Fetch real course count from `/courses` API in `app/page.tsx` and pass to `HeroSection` as `activeCourseCount`
-- [ ] Add `NEXT_PUBLIC_ENGINEER_COUNT` env variable (fallback `0`) for the engineer stat badge; document in `.env.example`
+- [x] Fetch real course count from `/courses` API in `app/page.tsx` and pass to `HeroSection` as `activeCourseCount`
+- [x] Add `NEXT_PUBLIC_ENGINEER_COUNT` env variable (fallback `0`) for the engineer stat badge; document in `.env.example`
 
 ---
 

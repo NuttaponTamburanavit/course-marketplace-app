@@ -1,0 +1,13 @@
+import Link from 'next/link';
+import { Button } from '@/components/atoms/Button';
+
+export default function NotFound() {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 text-center px-4">
+      <h2 className="text-xl font-semibold text-gray-900">ไม่พบข้อมูลการชำระเงิน</h2>
+      <Link href="/">
+        <Button>กลับหน้าหลัก</Button>
+      </Link>
+    </div>
+  );
+}

@@ -1,0 +1,1 @@
+export { PromptPaySection } from './PromptPaySection';

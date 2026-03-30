@@ -1,7 +1,7 @@
 ---
 name: Implementer
 description: Implement code based on a plan or specification provided by the Planner agent. Execute tasks from `.plan/` files, write production-quality code, and keep the plan file updated as tasks are completed."
-model: Gemini 3.1 Pro (Preview) (copilot)
+model: Claude Sonnet 4.6 (copilot)
 tools: [read, edit, execute, search, todo]
 handoffs:
   - label: Review Implementation

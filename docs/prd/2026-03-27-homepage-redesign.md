@@ -6,7 +6,7 @@ The current homepage of the Course Marketplace provides no visual identity, no b
 
 ## Solution
 
-Redesign the homepage to fully implement the **"Armored Obsidian"** design system described in `docs/DESIGN.md`. The new homepage will include a dark-themed, premium layout with:
+Redesign the homepage to fully implement the **"Armored Obsidian"** design system described in `docs/design/DESIGN.md` and `docs/design/screen.png`. The new homepage will include a dark-themed, premium layout with:
 
 - A shared global navigation header with the platform logo and primary nav links.
 - A bold hero section with a headline, subtext, and live stats badges.
@@ -14,7 +14,7 @@ Redesign the homepage to fully implement the **"Armored Obsidian"** design syste
 - A full-bleed marketing CTA banner encouraging subscription.
 - A global footer with navigation columns and social links.
 
-The redesign applies the design token palette (obsidian surfaces, surgical red accents, glassmorphism panels) and typography system (Space Grotesk + Inter) specified in `docs/DESIGN.md`. No authentication logic is in scope for this phase.
+The redesign applies the design token palette (obsidian surfaces, surgical red accents, glassmorphism panels) and typography system (Space Grotesk + Inter) specified in `docs/design/DESIGN.md` and `docs/design/screen.png`. No authentication logic is in scope for this phase.
 
 ## User Stories
 
